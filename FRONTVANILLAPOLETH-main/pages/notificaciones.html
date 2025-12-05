@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestión de Notificaciones</title>
+    <link rel="stylesheet" href="../css/notificaciones.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        /* Estilos para las notificaciones */
+        @keyframes slideInRight {
+            from {
+                transform: translateX(100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+        
+        @keyframes slideOutRight {
+            from {
+                transform: translateX(0);
+                opacity: 1;
+            }
+            to {
+                transform: translateX(100%);
+                opacity: 0;
+            }
+        }
+        
+        .notification {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            padding: 15px 20px;
+            background: #f44336;
+            color: white;
+            border-radius: 6px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            z-index: 10000;
+            animation: slideInRight 0.3s ease;
+        }
+        
+        .notification.success {
+            background: #4CAF50;
+        }
+        
+        .notification.error {
+            background: #f44336;
+        }
+
+        .spinner {
+            display: inline-block;
+            width: 14px;
+            height: 14px;
+            border: 2px solid #ffffff;
+            border-radius: 50%;
+            border-top-color: transparent;
+            animation: spin 0.8s linear infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <div class="dashboard-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h2><i class="fas fa-home"></i> Sistema de Alquiler</h2>
+            </div>
+            <nav class="sidebar-nav">
+                <ul>
+                    <li><a href="dashboard.html"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
+                    <li><a href="contratos.html"><i class="fas fa-file-contract"></i> Contratos</a></li>
+                    <li><a href="inquilinos.html"><i class="fas fa-users"></i> Usuarios</a></li>
+                    <li><a href="cuartos-muebles.html"><i class="fas fa-door-closed"></i> Cuartos y Muebles</a></li>
+                    <li><a href="mantenimiento.html"><i class="fas fa-tools"></i> Mantenimiento</a></li>
+                    <li><a href="bitacora.html"><i class="fas fa-clipboard-list"></i> Bitácora</a></li>
+                    <li class="active"><a href="notificaciones.html"><i class="fas fa-bell"></i> Notificaciones</a></li>
+                    <li><a href="login.html"><i class="fas fa-sign-out-alt"></i> Salir</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <header class="content-header">
+                <h1>Gestión de Notificaciones</h1>
+                <button class="btn-primary" id="btnNuevaNotificacion">
+                    <i class="fas fa-plus"></i> Nueva Notificación
+                </button>
+            </header>
+
+            <!-- Dashboard Stats -->
+            <section class="dashboard-stats">
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-bell"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3 id="totalNotificaciones">0</h3>
+                        <p>Total Notificaciones</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-eye"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3 id="notificacionesLeidas">0</h3>
+                        <p>Leídas</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-eye-slash"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3 id="notificacionesNoLeidas">0</h3>
+                        <p>No Leídas</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-calendar-day"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3 id="notificacionesHoy">0</h3>
+                        <p>Para Hoy</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Filtros -->
+            <section class="filters-section">
+                <div class="filter-group">
+                    <label for="filterEstado">Filtrar por estado:</label>
+                    <select id="filterEstado" class="filter-select">
+                        <option value="">Todos los estados</option>
+                        <option value="no_leido">No Leídas</option>
+                        <option value="leido">Leídas</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label for="filterTipo">Filtrar por tipo:</label>
+                    <select id="filterTipo" class="filter-select">
+                        <option value="">Todos los tipos</option>
+                        <option value="PAGO_PENDIENTE">Pago Pendiente</option>
+                        <option value="RENOVACION">Renovación</option>
+                        <option value="MANTENIMIENTO">Mantenimiento</option>
+                        <option value="INSPECCION">Inspección</option>
+                        <option value="AVISO_GENERAL">Aviso General</option>
+                        <option value="RECORDATORIO">Recordatorio</option>
+                        <option value="URGENTE">Urgente</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label for="filterInquilino">Filtrar por inquilino:</label>
+                    <select id="filterInquilino" class="filter-select">
+                        <option value="">Todos los inquilinos</option>
+                        <!-- Se cargará dinámicamente -->
+                    </select>
+                </div>
+            </section>
+
+            <!-- Notificaciones Table -->
+            <section class="table-section">
+                <div class="table-header">
+                    <h2>Lista de Notificaciones</h2>
+                    <div class="table-actions">
+                        <input type="text" id="searchInput" placeholder="Buscar notificación..." class="search-input">
+                        <button class="btn-refresh" id="btnRefresh">
+                            <i class="fas fa-sync-alt"></i> Actualizar
+                        </button>
+                    </div>
+                </div>
+                <div class="table-container">
+                    <table id="notificacionesTable">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Inquilino</th>
+                                <th>Contrato</th>
+                                <th>Fecha Utilización</th>
+                                <th>Tipo</th>
+                                <th>Estado</th>
+                                <th>Detalles</th>
+                                <th>Creada</th>
+                                <th>Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody id="notificacionesTableBody">
+                            <tr>
+                                <td colspan="9" class="empty-state">
+                                    <i class="fas fa-spinner fa-spin" style="font-size: 48px; color: var(--gray); margin-bottom: 15px;"></i>
+                                    <p>Cargando notificaciones...</p>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Modal Nueva Notificación -->
+    <div id="modalNotificacion" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="modalTitle">Nueva Notificación</h2>
+                <span class="close">&times;</span>
+            </div>
+            <form id="notificacionForm">
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="idInquilino">Inquilino * <small style="color: #666;">(Solo usuarios con rol Inquilino)</small></label>
+                        <select id="idInquilino" name="idInquilino" required>
+                            <option value="">Seleccionar inquilino...</option>
+                            <!-- Se cargarán dinámicamente -->
+                        </select>
+                        <small class="form-hint">Selecciona un inquilino registrado en el sistema</small>
+                    </div>
+                    <div class="form-group">
+                        <label for="idContrato">Contrato *</label>
+                        <select id="idContrato" name="idContrato" required>
+                            <option value="">Seleccionar contrato...</option>
+                            <!-- Se cargarán dinámicamente -->
+                        </select>
+                        <small class="form-hint">Contrato asociado a esta notificación</small>
+                    </div>
+                    <div class="form-group">
+                        <label for="fechaUtilizacion">Fecha Utilización *</label>
+                        <input type="date" id="fechaUtilizacion" name="fechaUtilizacion" required>
+                        <small class="form-hint">Fecha para la que aplica esta notificación</small>
+                    </div>
+                    <div class="form-group">
+                        <label for="tipoNotificacion">Tipo de Notificación *</label>
+                        <select id="tipoNotificacion" name="tipoNotificacion" required>
+                            <option value="">Seleccionar tipo...</option>
+                            <option value="PAGO_PENDIENTE">Pago Pendiente</option>
+                            <option value="RENOVACION">Renovación de Contrato</option>
+                            <option value="MANTENIMIENTO">Mantenimiento</option>
+                            <option value="INSPECCION">Inspección</option>
+                            <option value="AVISO_GENERAL">Aviso General</option>
+                            <option value="RECORDATORIO">Recordatorio</option>
+                            <option value="URGENTE">Urgente</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="detalles">Detalles</label>
+                    <textarea id="detalles" name="detalles" rows="4" maxlength="1000"
+                              placeholder="Descripción de la notificación... (máx. 1000 caracteres)"></textarea>
+                    <div class="char-count">
+                        <span id="charCount">0</span>/1000 caracteres
+                    </div>
+                </div>
+
+                <div class="form-actions">
+                    <button type="button" class="btn-secondary" id="btnCancelar">Cancelar</button>
+                    <button type="submit" class="btn-primary" id="btnGuardar">Guardar Notificación</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Modal de Confirmación -->
+    <div id="modalConfirmacion" class="modal">
+        <div class="modal-content confirm-modal">
+            <div class="modal-header">
+                <h2>¿Estás seguro?</h2>
+                <span class="close">&times;</span>
+            </div>
+            <div class="modal-body">
+                <p id="confirmacionMensaje">Confirma la acción</p>
+            </div>
+            <div class="modal-actions">
+                <button class="btn-secondary" id="btnCancelarAccion">Cancelar</button>
+                <button class="btn-danger" id="btnConfirmarAccion">Confirmar</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="../js/notificaciones.js"></script>
+</body>
+</html>
