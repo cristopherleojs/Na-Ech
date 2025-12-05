@@ -1,0 +1,196 @@
+<!-- perfil.html -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Na-Ech - Mi Perfil</title>
+    <link rel="stylesheet" href="../css/perfil.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="dashboard-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h2><i class="fas fa-home"></i> Na-Ech</h2>
+            </div>
+            <nav class="sidebar-nav">
+                <ul>
+                    <li><a href="pagos.html"><i class="fas fa-money-bill-wave"></i> Pagos</a></li>
+                    <li><a href="reportes.html"><i class="fas fa-chart-bar"></i> Reportes</a></li>
+                    <li class="active"><a href="perfil.html"><i class="fas fa-user"></i> Perfil</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <header class="content-header">
+                <h1>Mi Perfil</h1>
+            </header>
+
+            <!-- Profile Header -->
+            <section class="profile-header-section">
+                <div class="profile-card">
+                    <div class="profile-avatar">
+                        <div class="avatar-circle">
+                            <span id="avatarInitials">US</span>
+                        </div>
+                    </div>
+                    <div class="profile-info">
+                        <h2 id="profileName">Cargando...</h2>
+                        <p class="profile-role" id="profileRole">Cargando rol...</p>
+                        <p class="profile-email" id="profileEmail">Cargando email...</p>
+                    </div>
+                    <div class="profile-stats">
+                        <div class="stat-item">
+                            <span class="stat-number" id="statUsuarioId">-</span>
+                            <span class="stat-label">ID Usuario</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number" id="statEstado">-</span>
+                            <span class="stat-label">Estado</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number" id="statRolId">-</span>
+                            <span class="stat-label">Rol ID</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Información del Usuario -->
+            <section class="profile-content">
+                <div class="content-grid">
+                    <!-- Información Personal -->
+                    <div class="info-card">
+                        <div class="card-header">
+                            <h3><i class="fas fa-user-circle"></i> Información Personal</h3>
+                        </div>
+                        <div class="card-body">
+                            <div class="info-grid">
+                                <div class="info-item">
+                                    <label>Usuario</label>
+                                    <p id="infoUsername">-</p>
+                                </div>
+                                <div class="info-item">
+                                    <label>Email</label>
+                                    <p id="infoEmail">-</p>
+                                </div>
+                                <div class="info-item">
+                                    <label>Rol</label>
+                                    <p id="infoRole">-</p>
+                                </div>
+                                <div class="info-item">
+                                    <label>Fecha de Registro</label>
+                                    <p id="infoCreatedAt">-</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Información del Sistema -->
+                    <div class="info-card">
+                        <div class="card-header">
+                            <h3><i class="fas fa-info-circle"></i> Información del Sistema</h3>
+                        </div>
+                        <div class="card-body">
+                            <div id="systemInfoContent">
+                                <div class="info-grid">
+                                    <div class="info-item">
+                                        <label>ID Usuario</label>
+                                        <p id="systemUserId">-</p>
+                                    </div>
+                                    <div class="info-item">
+                                        <label>Estado de Usuario</label>
+                                        <p id="systemUserStatus">-</p>
+                                    </div>
+                                    <div class="info-item">
+                                        <label>ID de Rol</label>
+                                        <p id="systemRoleId">-</p>
+                                    </div>
+                                    <div class="info-item">
+                                        <label>Nombre de Rol</label>
+                                        <p id="systemRoleName">-</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Información de Contacto -->
+                    <div class="info-card">
+                        <div class="card-header">
+                            <h3><i class="fas fa-address-book"></i> Información de Contacto</h3>
+                        </div>
+                        <div class="card-body">
+                            <div class="info-grid">
+                                <div class="info-item">
+                                    <label>Teléfono</label>
+                                    <p id="infoPhone">-</p>
+                                </div>
+                                <div class="info-item full-width">
+                                    <label>Email de Contacto</label>
+                                    <p id="infoContactEmail">-</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Seguridad -->
+                    <div class="info-card">
+                        <div class="card-header">
+                            <h3><i class="fas fa-shield-alt"></i> Seguridad</h3>
+                        </div>
+                        <div class="card-body">
+                            <div class="security-actions">
+                                <button id="sessionInfoBtn" class="btn-secondary security-btn">
+                                    <i class="fas fa-info-circle"></i> Información de Sesión
+                                </button>
+                                <button id="logoutBtn" class="btn-danger security-btn">
+                                    <i class="fas fa-sign-out-alt"></i> Cerrar Sesión
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Modal de Información de Sesión -->
+    <div id="sessionModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2><i class="fas fa-info-circle"></i> Información de Sesión</h2>
+                <span class="close">&times;</span>
+            </div>
+            <div class="session-info">
+                <div class="info-item">
+                    <label><i class="fas fa-user"></i> Usuario:</label>
+                    <span id="sessionUsername">-</span>
+                </div>
+                <div class="info-item">
+                    <label><i class="fas fa-user-tag"></i> Rol:</label>
+                    <span id="sessionRole">-</span>
+                </div>
+                <div class="info-item">
+                    <label><i class="fas fa-envelope"></i> Email:</label>
+                    <span id="sessionEmail">-</span>
+                </div>
+                <div class="info-item">
+                    <label><i class="fas fa-clock"></i> Token Generado:</label>
+                    <span id="sessionTokenTime">-</span>
+                </div>
+                <div class="info-item">
+                    <label><i class="fas fa-hourglass-end"></i> Expira:</label>
+                    <span id="sessionExpires">-</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../js/perfil.js"></script>
+</body>
+</html>
