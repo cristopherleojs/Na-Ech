@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FRONTVANILLAPOLETH - Sistema de Gestión de Contratos</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Segoe+UI:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="/css/index.css" />
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <i class="fas fa-file-contract"></i>
+                    <span data-key="site-title">FRONTVANILLAPOLETH</span>
+                </div>
+                <nav class="nav">
+                    <a href="#inicio" data-key="nav-home">Inicio</a>
+                    <a href="#caracteristicas" data-key="nav-features">Características</a>
+                    <a href="#solucion" data-key="nav-solution">Solución</a>
+                    <a href="#equipo" data-key="nav-team">Equipo</a>
+                    <button id="translate-btn" class="btn-translate">
+                        <i class="fas fa-language"></i> <span data-key="translate">Traducir al inglés</span>
+                    </button>
+                    <a href="/pages/home.html" class="btn-login">
+                        <i class="fas fa-sign-in-alt"></i> <span data-key="nav-login">Login</span>
+                    </a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="inicio" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1 data-key="hero-title">Sistema de Gestión de Contratos y Arriendos</h1>
+                    <p data-key="hero-description">Una solución integral para administrar contratos, pagos y comunicación entre arrendadores e inquilinos de manera eficiente y organizada.</p>
+                    <div class="hero-actions">
+                        <a href="/pages/home.html" class="btn-primary">
+                            <i class="fas fa-rocket"></i> <span data-key="hero-start">Comenzar Ahora</span>
+                        </a>
+                        <a href="#caracteristicas" class="btn-secondary">
+                            <i class="fas fa-info-circle"></i> <span data-key="hero-info">Más Información</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="hero-visual">
+                    <div class="dashboard-preview">
+                        <div class="preview-header">
+                            <div class="preview-nav">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </div>
+                        </div>
+                        <div class="preview-content">
+                            <div class="preview-sidebar">
+                                <div class="sidebar-item active">
+                                    <i class="fas fa-home"></i>
+                                    <span data-key="sidebar-dashboard">Dashboard</span>
+                                </div>
+                                <div class="sidebar-item">
+                                    <i class="fas fa-file-contract"></i>
+                                    <span data-key="sidebar-contracts">Contratos</span>
+                                </div>
+                                <div class="sidebar-item">
+                                    <i class="fas fa-users"></i>
+                                    <span data-key="sidebar-tenants">Inquilinos</span>
+                                </div>
+                                <div class="sidebar-item">
+                                    <i class="fas fa-chart-bar"></i>
+                                    <span data-key="sidebar-reports">Reportes</span>
+                                </div>
+                            </div>
+                            <div class="preview-main">
+                                <div class="stat-cards">
+                                    <div class="stat-card">
+                                        <div class="stat-icon">
+                                            <i class="fas fa-file-contract"></i>
+                                        </div>
+                                        <div class="stat-info">
+                                            <h3>24</h3>
+                                            <p data-key="stat-contracts">Contratos Activos</p>
+                                        </div>
+                                    </div>
+                                    <div class="stat-card">
+                                        <div class="stat-icon">
+                                            <i class="fas fa-users"></i>
+                                        </div>
+                                        <div class="stat-info">
+                                            <h3>18</h3>
+                                            <p data-key="stat-tenants">Inquilinos</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="table-preview">
+                                    <table>
+                                        <thead>
+                                            <tr>
+                                                <th data-key="table-contract">Contrato</th>
+                                                <th data-key="table-status">Estado</th>
+                                                <th data-key="table-expiration">Vencimiento</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>CT-001</td>
+                                                <td><span class="status-badge status-active" data-key="status-active">Activo</span></td>
+                                                <td>15/12/2023</td>
+                                            </tr>
+                                            <tr>
+                                                <td>CT-002</td>
+                                                <td><span class="status-badge status-pending" data-key="status-pending">Pendiente</span></td>
+                                                <td>20/11/2023</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Características -->
+    <section id="caracteristicas" class="features">
+        <div class="container">
+            <div class="section-header">
+                <h2 data-key="features-title">Características Principales</h2>
+                <p data-key="features-subtitle">Descubre cómo nuestro sistema puede transformar la gestión de tus contratos de arriendo</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-file-contract"></i>
+                    </div>
+                    <h3 data-key="feature1-title">Gestión de Contratos</h3>
+                    <p data-key="feature1-desc">Administra todos tus contratos de arriendo en un solo lugar, con recordatorios automáticos de vencimiento.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-money-bill-wave"></i>
+                    </div>
+                    <h3 data-key="feature2-title">Seguimiento de Pagos</h3>
+                    <p data-key="feature2-desc">Controla los pagos de renta y servicios, con estados claros y alertas de morosidad.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-tools"></i>
+                    </div>
+                    <h3 data-key="feature3-title">Reportes de Mantenimiento</h3>
+                    <p data-key="feature3-desc">Sistema integrado para reportar y dar seguimiento a problemas de mantenimiento en los inmuebles.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-bell"></i>
+                    </div>
+                    <h3 data-key="feature4-title">Notificaciones Automáticas</h3>
+                    <p data-key="feature4-desc">Mantén informados a arrendadores e inquilinos con recordatorios y avisos importantes.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3 data-key="feature5-title">Reportes y Estadísticas</h3>
+                    <p data-key="feature5-desc">Visualiza el estado de tus propiedades y finanzas con reportes detallados y gráficos intuitivos.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h3 data-key="feature6-title">Acceso Móvil</h3>
+                    <p data-key="feature6-desc">Gestiona tus contratos desde cualquier dispositivo, en cualquier momento y lugar.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Solución -->
+    <section id="solucion" class="solution">
+        <div class="container">
+            <div class="solution-content">
+                <div class="solution-text">
+                    <h2 data-key="solution-title">Solución Integral para la Problemática de Arriendos</h2>
+                    <p data-key="solution-subtitle">Nuestro sistema aborda los principales problemas identificados en la gestión tradicional de arriendos:</p>
+                    
+                    <div class="problem-solution">
+                        <div class="problem-item">
+                            <h3><i class="fas fa-exclamation-circle"></i> <span data-key="problem1-title">Problema: Gestión Desorganizada</span></h3>
+                            <p data-key="problem1-desc">Falta de un sistema centralizado para administrar contratos, pagos y comunicación.</p>
+                        </div>
+                        <div class="solution-item">
+                            <h3><i class="fas fa-check-circle"></i> <span data-key="solution1-title">Solución: Plataforma Unificada</span></h3>
+                            <p data-key="solution1-desc">Toda la información de contratos, pagos y comunicación en un solo lugar accesible.</p>
+                        </div>
+                        
+                        <div class="problem-item">
+                            <h3><i class="fas fa-exclamation-circle"></i> <span data-key="problem2-title">Problema: Comunicación Ineficiente</span></h3>
+                            <p data-key="problem2-desc">Dificultades para reportar problemas y mantener informadas a ambas partes.</p>
+                        </div>
+                        <div class="solution-item">
+                            <h3><i class="fas fa-check-circle"></i> <span data-key="solution2-title">Solución: Canal de Comunicación Integrado</span></h3>
+                            <p data-key="solution2-desc">Sistema de mensajería y notificaciones para mantener una comunicación fluida.</p>
+                        </div>
+                        
+                        <div class="problem-item">
+                            <h3><i class="fas fa-exclamation-circle"></i> <span data-key="problem3-title">Problema: Falta de Recordatorios</span></h3>
+                            <p data-key="problem3-desc">Olvido de fechas de pago, vencimiento de contratos y mantenimientos.</p>
+                        </div>
+                        <div class="solution-item">
+                            <h3><i class="fas fa-check-circle"></i> <span data-key="solution3-title">Solución: Recordatorios Automáticos</span></h3>
+                            <p data-key="solution3-desc">Alertas y notificaciones automáticas para fechas importantes y pagos pendientes.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="solution-visual">
+                    <div class="solution-stats">
+                        <div class="solution-stat">
+                            <h3>+80%</h3>
+                            <p data-key="stat1-desc">Reducción en pagos atrasados</p>
+                        </div>
+                        <div class="solution-stat">
+                            <h3>+60%</h3>
+                            <p data-key="stat2-desc">Mejora en comunicación</p>
+                        </div>
+                        <div class="solution-stat">
+                            <h3>+90%</h3>
+                            <p data-key="stat3-desc">Satisfacción de usuarios</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Equipo -->
+    <section id="equipo" class="team">
+        <div class="container">
+            <div class="section-header">
+                <h2 data-key="team-title">Nuestro Equipo</h2>
+                <p data-key="team-subtitle">El equipo detrás del desarrollo de FRONTVANILLAPOLETH</p>
+            </div>
+            <div class="team-grid">
+                <div class="team-member">
+                    <div class="member-avatar">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <h3 data-key="team-name">Proyecto Integrador 3A</h3>
+                    <p data-key="team-role">Equipo de Desarrollo</p>
+                    <div class="member-skills">
+                        <span data-key="skill1">Desarrollo Web</span>
+                        <span data-key="skill2">UX/UI</span>
+                        <span data-key="skill3">Base de Datos</span>
+                    </div>
+                </div>
+                <div class="team-values">
+                    <h3 data-key="values-title">Nuestros Valores</h3>
+                    <ul>
+                        <li><i class="fas fa-check"></i> <span data-key="value1">Enfoque en la experiencia del usuario</span></li>
+                        <li><i class="fas fa-check"></i> <span data-key="value2">Soluciones prácticas y eficientes</span></li>
+                        <li><i class="fas fa-check"></i> <span data-key="value3">Comunicación clara y transparente</span></li>
+                        <li><i class="fas fa-check"></i> <span data-key="value4">Mejora continua del producto</span></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta">
+        <div class="container">
+            <div class="cta-content">
+                <h2 data-key="cta-title">¿Listo para transformar la gestión de tus arriendos?</h2>
+                <p data-key="cta-subtitle">Comienza hoy mismo con FRONTVANILLAPOLETH y descubre una nueva forma de administrar tus contratos.</p>
+                <a href="/pages/home.html" class="btn-primary">
+                    <i class="fas fa-rocket"></i> <span data-key="cta-button">Comenzar Ahora</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <i class="fas fa-file-contract"></i>
+                    <span data-key="footer-title">FRONTVANILLAPOLETH</span>
+                </div>
+                <div class="footer-links">
+                    <a href="#inicio" data-key="footer-home">Inicio</a>
+                    <a href="#caracteristicas" data-key="footer-features">Características</a>
+                    <a href="#solucion" data-key="footer-solution">Solución</a>
+                    <a href="#equipo" data-key="footer-team">Equipo</a>
+                </div>
+                <div class="footer-copy">
+                    <p data-key="footer-copy1">&copy; 2023 FRONTVANILLAPOLETH. Todos los derechos reservados.</p>
+                    <p data-key="footer-copy2">Proyecto Integrador 3A - Sistema de gestión de contratos y arriendos</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/js/index.js"></script>
+</body>
+</html>

@@ -1,3 +1,7 @@
 {
+<<<<<<< HEAD
     "java.configuration.updateBuildConfiguration": "interactive"
+=======
+    "git.ignoreLimitWarning": true
+>>>>>>> f894af93ad4d694d2ffa480072e3d411ff68b569
 }
